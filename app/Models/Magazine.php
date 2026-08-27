@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Magazine extends Model
 {
     protected $fillable = [
-        'title', 'edition_number', 'publish_date', 'cover_image', 'pdf_file', 'description'
+        'title', 'edition_number', 'publish_date', 'cover_image', 'pdf_file'
     ];
 
     protected $casts = [

@@ -31,7 +31,7 @@
                             <td class="px-6 py-4">
                                 <div class="flex min-w-64 items-center gap-4">
                                     @if ($article->thumbnail)
-                                        <img src="{{ asset('storage/' . $article->thumbnail) }}" alt="" class="h-14 w-20 rounded-lg object-cover">
+                                        <img src="{{ asset('storage/' . $article->thumbnail) }}" alt="" loading="lazy" decoding="async" class="h-14 w-20 rounded-lg object-cover">
                                     @else
                                         <div class="h-14 w-20 shrink-0 rounded-lg bg-blue-50 flex items-center justify-center text-xs font-bold text-primary">WARTA</div>
                                     @endif

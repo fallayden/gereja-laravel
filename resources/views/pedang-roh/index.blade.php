@@ -68,6 +68,8 @@
                             <img
                                 src="{{ asset('storage/' . $magazine->cover_image) }}"
                                 alt="Sampul {{ $magazine->title }}"
+                                loading="lazy"
+                                decoding="async"
                                 class="aspect-[3/4] w-full object-cover"
                             >
                         @else
@@ -86,12 +88,6 @@
                             <time class="mt-2 text-sm text-slate-500" datetime="{{ $magazine->publish_date->toDateString() }}">
                                 {{ $magazine->publish_date->translatedFormat('d F Y') }}
                             </time>
-
-                            @if ($magazine->description)
-                                <p class="mt-3 text-sm leading-relaxed text-slate-600">
-                                    {{ Str::limit($magazine->description, 120) }}
-                                </p>
-                            @endif
 
                             <div class="mt-auto pt-5 grid grid-cols-2 gap-2">
                                 <a href="{{ route('pedang-roh.view', $magazine) }}" target="_blank" rel="noopener"

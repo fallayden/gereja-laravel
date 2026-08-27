@@ -27,9 +27,10 @@ class PedangRohController extends Controller
 
         $magazines = $query->paginate(8)->withQueryString();
 
-        $years = Magazine::selectRaw('YEAR(publish_date) as year')
+        $years = Magazine::query()
+            ->selectRaw('YEAR(publish_date) as year')
             ->distinct()
-            ->orderBy('year', 'desc')
+            ->orderByDesc('year')
             ->pluck('year');
 
         return view('pedang-roh.index', compact('magazines', 'years'));
@@ -44,7 +45,10 @@ class PedangRohController extends Controller
         return Storage::disk('public')->response(
             $magazine->pdf_file,
             $magazine->title . '.pdf',
-            ['Content-Type' => 'application/pdf']
+            [
+                'Content-Type' => 'application/pdf',
+                'Cache-Control' => 'public, max-age=86400',
+            ]
         );
     }
 

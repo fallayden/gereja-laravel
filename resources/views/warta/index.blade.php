@@ -29,6 +29,8 @@
                                     <img
                                         src="{{ asset('storage/' . $article->thumbnail) }}"
                                         alt="{{ $article->title }}"
+                                        loading="lazy"
+                                        decoding="async"
                                         class="h-48 w-full object-cover"
                                     >
                                 @else

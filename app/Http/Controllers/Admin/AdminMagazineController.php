@@ -42,7 +42,6 @@ class AdminMagazineController extends Controller
             'publish_date' => $request->publish_date,
             'cover_image' => $coverPath,
             'pdf_file' => $pdfPath,
-            'description' => $request->description,
         ]);
 
         return redirect()->route('admin.pedang-roh.index')->with('success', 'Majalah berhasil diunggah!');
@@ -59,7 +58,6 @@ class AdminMagazineController extends Controller
             'title' => 'required|max:255',
             'edition_number' => 'required',
             'publish_date' => 'required|date',
-            'description' => 'nullable',
             'cover_image' => 'nullable|image|max:2048',
             'pdf_file' => 'nullable|mimes:pdf|max:20480',
         ]);
@@ -93,7 +91,6 @@ class AdminMagazineController extends Controller
             'publish_date' => $request->publish_date,
             'cover_image' => $coverPath,
             'pdf_file' => $pdfPath,
-            'description' => $request->description,
         ]);
 
         return redirect()->route('admin.pedang-roh.index')->with('success', 'Majalah berhasil diperbarui!');

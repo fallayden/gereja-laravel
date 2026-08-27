@@ -32,19 +32,14 @@
                             <td class="px-6 py-4">
                                 <div class="flex min-w-64 items-center gap-4">
                                     @if ($magazine->cover_image)
-                                        <img src="{{ asset('storage/' . $magazine->cover_image) }}" alt=""
+                                        <img src="{{ asset('storage/' . $magazine->cover_image) }}" alt="" loading="lazy" decoding="async"
                                              class="h-20 w-14 shrink-0 rounded-md object-cover shadow-sm">
                                     @else
                                         <div class="h-20 w-14 shrink-0 rounded-md bg-gradient-to-br from-blue-950 to-primary flex items-center justify-center px-1 text-center text-[10px] font-bold text-white shadow-sm">
                                             PEDANG ROH
                                         </div>
                                     @endif
-                                    <div>
-                                        <p class="font-semibold text-slate-900">{{ $magazine->title }}</p>
-                                        @if ($magazine->description)
-                                            <p class="mt-1 max-w-md text-sm text-slate-500">{{ Str::limit($magazine->description, 80) }}</p>
-                                        @endif
-                                    </div>
+                                    <p class="font-semibold text-slate-900">{{ $magazine->title }}</p>
                                 </div>
                             </td>
                             <td class="whitespace-nowrap px-6 py-4 text-sm font-semibold text-slate-700">

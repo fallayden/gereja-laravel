@@ -29,6 +29,8 @@
                         <img
                             src="{{ asset('images/gembala.jpg') }}"
                             alt="Gbl. Arifan T. Kusuma"
+                            loading="lazy"
+                            decoding="async"
                             class="max-h-[500px] w-full object-cover object-center"
                         >
                         <figcaption class="border-t border-slate-200 px-5 py-4 text-center">
@@ -145,7 +147,7 @@
 
             <div class="mt-10 grid gap-8 md:grid-cols-3">
                 <article class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-md">
-                    <img src="{{ asset('images/Tanjung Burung.jpeg') }}" alt="Pelayanan GBIA Tanjung Burung" class="h-52 w-full object-cover object-center">
+                    <img src="{{ asset('images/Tanjung Burung.jpeg') }}" alt="Pelayanan GBIA Tanjung Burung" loading="lazy" decoding="async" class="h-52 w-full object-cover object-center">
                     <div class="p-6">
                         <h3 class="font-serif text-xl font-bold text-slate-900">GBIA TANJUNG BURUNG</h3>
                         <dl class="mt-5 space-y-3 text-sm">
@@ -156,7 +158,7 @@
                 </article>
 
                 <article class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-md">
-                    <img src="{{ asset('images/Sepatan.jpeg') }}" alt="Pelayanan GBIA Musafir" class="h-52 w-full object-cover object-center">
+                    <img src="{{ asset('images/Sepatan.jpeg') }}" alt="Pelayanan GBIA Musafir" loading="lazy" decoding="async" class="h-52 w-full object-cover object-center">
                     <div class="p-6">
                         <h3 class="font-serif text-xl font-bold text-slate-900">GBIA Musafir</h3>
                         <dl class="mt-5 space-y-3 text-sm">
@@ -167,7 +169,7 @@
                 </article>
 
                 <article class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-md">
-                    <img src="{{ asset('images/citra.jpeg') }}" alt="Pelayanan GBIA Citra Raya" class="h-52 w-full object-cover object-center">
+                    <img src="{{ asset('images/citra.jpeg') }}" alt="Pelayanan GBIA Citra Raya" loading="lazy" decoding="async" class="h-52 w-full object-cover object-center">
                     <div class="p-6">
                         <h3 class="font-serif text-xl font-bold text-slate-900">GBIA Citra Raya</h3>
                         <dl class="mt-5 space-y-3 text-sm">

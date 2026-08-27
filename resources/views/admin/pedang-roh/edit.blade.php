@@ -50,7 +50,7 @@
             <div>
                 <label for="cover_image" class="block text-sm font-semibold text-slate-700">Ganti gambar sampul <span class="font-normal text-slate-400">(opsional)</span></label>
                 @if ($pedang_roh->cover_image)
-                    <img src="{{ asset('storage/' . $pedang_roh->cover_image) }}" alt="Sampul saat ini" class="mt-2 h-40 w-28 rounded-lg object-cover">
+                    <img src="{{ asset('storage/' . $pedang_roh->cover_image) }}" alt="Sampul saat ini" loading="lazy" decoding="async" class="mt-2 h-40 w-28 rounded-lg object-cover">
                 @endif
                 <input id="cover_image" name="cover_image" type="file" accept="image/*"
                        class="mt-3 block w-full rounded-lg border border-slate-300 bg-white text-sm file:mr-4 file:border-0 file:bg-blue-50 file:px-4 file:py-3 file:font-semibold file:text-primary">

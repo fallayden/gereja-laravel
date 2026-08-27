@@ -11,13 +11,17 @@ class WartaController extends Controller
 {
     public function index(): View
     {
-        $articles = Article::where('is_published', true)
+        $articles = Article::query()
+            ->select(['id', 'title', 'slug', 'excerpt', 'thumbnail', 'published_at', 'is_published'])
+            ->where('is_published', true)
             ->latest('published_at')
             ->paginate(6);
 
-        $archives = Article::where('is_published', true)
+        $archives = Article::query()
+            ->select(['id', 'title', 'slug', 'published_at', 'is_published'])
+            ->where('is_published', true)
             ->has('attachments')
-            ->with('attachments')
+            ->with(['attachments:id,article_id,file_name,file_path,file_size'])
             ->latest('published_at')
             ->take(4)
             ->get();
@@ -44,7 +48,10 @@ class WartaController extends Controller
         return Storage::disk('public')->response(
             $attachment->file_path,
             $attachment->file_name,
-            ['Content-Type' => 'application/pdf']
+            [
+                'Content-Type' => 'application/pdf',
+                'Cache-Control' => 'public, max-age=86400',
+            ]
         );
     }
 
