@@ -21,7 +21,6 @@
                 <thead class="bg-slate-50">
                     <tr class="text-left text-xs font-semibold uppercase tracking-wider text-slate-500">
                         <th class="px-6 py-4">Warta</th>
-                        <th class="px-6 py-4">Tanggal Terbit</th>
                         <th class="px-6 py-4">Status</th>
                         <th class="px-6 py-4 text-right">Aksi</th>
                     </tr>
@@ -42,9 +41,6 @@
                                     </div>
                                 </div>
                             </td>
-                            <td class="whitespace-nowrap px-6 py-4 text-sm text-slate-600">
-                                {{ optional($article->published_at)->translatedFormat('d M Y, H:i') ?? '—' }}
-                            </td>
                             <td class="whitespace-nowrap px-6 py-4">
                                 @if ($article->is_published)
                                     <span class="rounded-full bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-700">Terbit</span>
@@ -57,6 +53,8 @@
                                     <a href="{{ route('warta.show', $article->slug) }}" target="_blank" rel="noopener"
                                        class="mr-3 font-semibold text-primary hover:text-blue-800">Lihat</a>
                                 @endif
+                                <a href="{{ route('admin.warta.edit', $article) }}"
+                                   class="mr-3 font-semibold text-amber-600 hover:text-amber-800">Edit</a>
                                 <form method="POST" action="{{ route('admin.warta.destroy', $article) }}" class="inline"
                                       onsubmit="return confirm('Hapus warta ini beserta seluruh lampirannya?')">
                                     @csrf
@@ -67,7 +65,7 @@
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="4" class="px-6 py-14 text-center">
+                            <td colspan="3" class="px-6 py-14 text-center">
                                 <p class="font-serif text-xl font-bold text-slate-800">Belum ada warta</p>
                                 <p class="mt-2 text-sm text-slate-500">Tambahkan warta pertama untuk mulai mengisi website.</p>
                             </td>

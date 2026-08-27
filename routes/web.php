@@ -36,6 +36,9 @@ Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
         return redirect()->route('admin.warta.index');
     })->name('dashboard');
 
-    Route::resource('warta', AdminWartaController::class);
-    Route::resource('pedang-roh', AdminMagazineController::class);
+    Route::resource('warta', AdminWartaController::class)
+        ->except(['show'])
+        ->parameters(['warta' => 'warta']);
+    Route::resource('pedang-roh', AdminMagazineController::class)
+        ->except(['show']);
 });

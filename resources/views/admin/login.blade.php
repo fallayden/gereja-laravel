@@ -114,7 +114,7 @@
                     </form>
 
                     <a href="{{ route('home') }}" class="mt-6 block text-center text-sm font-semibold text-slate-500 hover:text-primary">
-                        &larr; Kembali ke website
+                        Kembali ke website
                     </a>
                 </div>
             </div>

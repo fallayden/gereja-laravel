@@ -59,6 +59,61 @@ class AdminWartaController extends Controller
         return redirect()->route('admin.warta.index')->with('success', 'Warta jemaat berhasil ditambahkan!');
     }
 
+    public function edit(Article $warta)
+    {
+        $warta->load('attachments');
+
+        return view('admin.warta.edit', compact('warta'));
+    }
+
+    public function update(Request $request, Article $warta)
+    {
+        $request->validate([
+            'title' => 'required|max:255',
+            'body' => 'required',
+            'thumbnail' => 'nullable|image|max:2048',
+            'pdf_attachment' => 'nullable|mimes:pdf|max:10240',
+        ]);
+
+        $thumbnailPath = $warta->thumbnail;
+
+        if ($request->hasFile('thumbnail')) {
+            $newThumbnailPath = $request->file('thumbnail')->store('thumbnails', 'public');
+
+            if ($thumbnailPath) {
+                Storage::disk('public')->delete($thumbnailPath);
+            }
+
+            $thumbnailPath = $newThumbnailPath;
+        }
+
+        $warta->update([
+            'title' => $request->title,
+            'excerpt' => Str::limit(strip_tags($request->body), 150),
+            'body' => $request->body,
+            'thumbnail' => $thumbnailPath,
+        ]);
+
+        if ($request->hasFile('pdf_attachment')) {
+            $pdf = $request->file('pdf_attachment');
+            $pdfPath = $pdf->store('warta-attachments', 'public');
+
+            foreach ($warta->attachments as $attachment) {
+                Storage::disk('public')->delete($attachment->file_path);
+                $attachment->delete();
+            }
+
+            ArticleAttachment::create([
+                'article_id' => $warta->id,
+                'file_name' => $pdf->getClientOriginalName(),
+                'file_path' => $pdfPath,
+                'file_size' => $pdf->getSize(),
+            ]);
+        }
+
+        return redirect()->route('admin.warta.index')->with('success', 'Warta jemaat berhasil diperbarui!');
+    }
+
     public function destroy(Article $warta)
     {
         if ($warta->thumbnail) {

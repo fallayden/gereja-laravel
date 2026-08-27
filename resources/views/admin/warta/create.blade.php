@@ -4,7 +4,7 @@
 
 @section('content')
     <div class="mb-7">
-        <a href="{{ route('admin.warta.index') }}" class="text-sm font-semibold text-primary hover:text-blue-800">&larr; Kembali ke daftar</a>
+        <a href="{{ route('admin.warta.index') }}" class="text-sm font-semibold text-primary hover:text-blue-800">Kembali ke daftar</a>
         <h1 class="mt-3 font-serif text-3xl font-bold text-slate-900">Tambah Warta Jemaat</h1>
         <p class="mt-2 text-slate-600">Warta akan langsung diterbitkan setelah disimpan.</p>
     </div>
@@ -26,10 +26,10 @@
 
         <div class="space-y-6">
             <div>
-                <label for="title" class="block text-sm font-semibold text-slate-700">Judul warta</label>
+                <label for="title" class="block text-sm font-semibold text-slate-700">Judul artikel</label>
                 <input id="title" name="title" type="text" value="{{ old('title') }}" required maxlength="255"
                        class="mt-2 w-full rounded-lg border border-slate-300 px-4 py-3 outline-none focus:border-primary focus:ring-2 focus:ring-blue-100"
-                       placeholder="Contoh: Jadwal Ibadah dan Pengumuman Mingguan">
+                       placeholder="Contoh: Judul Artikel / Warta Mingguan">
                 @error('title')<p class="mt-2 text-sm text-red-600">{{ $message }}</p>@enderror
             </div>
 

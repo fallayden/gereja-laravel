@@ -4,7 +4,7 @@
 
 @section('content')
     <div class="mb-7">
-        <a href="{{ route('admin.pedang-roh.index') }}" class="text-sm font-semibold text-primary hover:text-blue-800">&larr; Kembali ke daftar</a>
+        <a href="{{ route('admin.pedang-roh.index') }}" class="text-sm font-semibold text-primary hover:text-blue-800">Kembali ke daftar</a>
         <h1 class="mt-3 font-serif text-3xl font-bold text-slate-900">Unggah Majalah Pedang Roh</h1>
         <p class="mt-2 text-slate-600">Majalah akan langsung tersedia di halaman publik setelah disimpan.</p>
     </div>
@@ -46,14 +46,6 @@
                 <input id="publish_date" name="publish_date" type="date" value="{{ old('publish_date') }}" required
                        class="mt-2 w-full rounded-lg border border-slate-300 px-4 py-3 outline-none focus:border-primary focus:ring-2 focus:ring-blue-100">
                 @error('publish_date')<p class="mt-2 text-sm text-red-600">{{ $message }}</p>@enderror
-            </div>
-
-            <div class="md:col-span-2">
-                <label for="description" class="block text-sm font-semibold text-slate-700">Deskripsi <span class="font-normal text-slate-400">(opsional)</span></label>
-                <textarea id="description" name="description" rows="5"
-                          class="mt-2 w-full rounded-lg border border-slate-300 px-4 py-3 leading-relaxed outline-none focus:border-primary focus:ring-2 focus:ring-blue-100"
-                          placeholder="Ringkasan isi majalah...">{{ old('description') }}</textarea>
-                @error('description')<p class="mt-2 text-sm text-red-600">{{ $message }}</p>@enderror
             </div>
 
             <div>

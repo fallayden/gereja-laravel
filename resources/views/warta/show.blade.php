@@ -5,15 +5,12 @@
         <header class="bg-gradient-to-br from-blue-950 via-primary to-blue-700 text-white">
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-14 lg:py-20">
                 <a href="{{ route('warta.index') }}" class="inline-flex text-sm font-semibold text-blue-200 hover:text-white transition">
-                    &larr; Kembali ke Warta Jemaat
+                    Kembali ke Warta Jemaat
                 </a>
-                <p class="mt-8 text-sm font-semibold uppercase tracking-wider text-blue-200">Warta Jemaat</p>
+                <p class="mt-8 text-sm font-semibold uppercase tracking-wider text-blue-200">Artikel Kekristenan</p>
                 <h1 class="mt-3 font-serif text-3xl font-bold leading-tight sm:text-4xl lg:text-5xl">
                     {{ $article->title }}
                 </h1>
-                <time class="mt-5 block text-blue-100" datetime="{{ optional($article->published_at)->toDateString() }}">
-                    Diterbitkan {{ optional($article->published_at)->translatedFormat('d F Y, H:i') ?? 'tanpa tanggal' }} WIB
-                </time>
             </div>
         </header>
 
@@ -66,7 +63,7 @@
 
             <div class="mt-12 border-t border-slate-200 pt-8">
                 <a href="{{ route('warta.index') }}" class="font-semibold text-primary hover:text-blue-800">
-                    &larr; Lihat semua Warta Jemaat
+                    Lihat semua Warta Jemaat
                 </a>
             </div>
         </div>

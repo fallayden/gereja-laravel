@@ -58,6 +58,8 @@
                                    class="mr-3 font-semibold text-primary hover:text-blue-800">Baca</a>
                                 <a href="{{ route('pedang-roh.download', $magazine) }}"
                                    class="mr-3 font-semibold text-slate-600 hover:text-slate-900">Unduh</a>
+                                <a href="{{ route('admin.pedang-roh.edit', $magazine) }}"
+                                   class="mr-3 font-semibold text-amber-600 hover:text-amber-800">Edit</a>
                                 <form method="POST" action="{{ route('admin.pedang-roh.destroy', $magazine) }}" class="inline"
                                       onsubmit="return confirm('Hapus majalah ini beserta berkas PDF dan sampulnya?')">
                                     @csrf

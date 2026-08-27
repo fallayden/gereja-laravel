@@ -1,8 +1,16 @@
 @extends('layouts.app')
 
 @section('content')
-    <section class="bg-gradient-to-br from-slate-950 via-primary to-blue-700 text-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 lg:py-16">
+    <section class="relative overflow-hidden bg-blue-950 text-white">
+        <img
+            src="{{ asset('images/foto-pedang-roh.jpg') }}"
+            alt=""
+            class="absolute inset-0 h-full w-full object-cover object-center"
+            aria-hidden="true"
+        >
+        <div class="absolute inset-0 bg-gradient-to-r from-blue-950/95 via-blue-950/80 to-slate-950/50"></div>
+
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 lg:py-16">
             <p class="text-blue-200 text-sm font-semibold uppercase tracking-wider">Majalah Rohani</p>
             <h1 class="font-serif text-4xl sm:text-5xl font-bold mt-2">Pedang Roh</h1>
             <p class="mt-4 max-w-2xl text-blue-100 leading-relaxed">

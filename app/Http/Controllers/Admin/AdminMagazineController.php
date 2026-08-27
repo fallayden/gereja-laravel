@@ -48,6 +48,57 @@ class AdminMagazineController extends Controller
         return redirect()->route('admin.pedang-roh.index')->with('success', 'Majalah berhasil diunggah!');
     }
 
+    public function edit(Magazine $pedang_roh)
+    {
+        return view('admin.pedang-roh.edit', compact('pedang_roh'));
+    }
+
+    public function update(Request $request, Magazine $pedang_roh)
+    {
+        $request->validate([
+            'title' => 'required|max:255',
+            'edition_number' => 'required',
+            'publish_date' => 'required|date',
+            'description' => 'nullable',
+            'cover_image' => 'nullable|image|max:2048',
+            'pdf_file' => 'nullable|mimes:pdf|max:20480',
+        ]);
+
+        $coverPath = $pedang_roh->cover_image;
+        $pdfPath = $pedang_roh->pdf_file;
+
+        if ($request->hasFile('cover_image')) {
+            $newCoverPath = $request->file('cover_image')->store('magazine-covers', 'public');
+
+            if ($coverPath) {
+                Storage::disk('public')->delete($coverPath);
+            }
+
+            $coverPath = $newCoverPath;
+        }
+
+        if ($request->hasFile('pdf_file')) {
+            $newPdfPath = $request->file('pdf_file')->store('magazines', 'public');
+
+            if ($pdfPath) {
+                Storage::disk('public')->delete($pdfPath);
+            }
+
+            $pdfPath = $newPdfPath;
+        }
+
+        $pedang_roh->update([
+            'title' => $request->title,
+            'edition_number' => $request->edition_number,
+            'publish_date' => $request->publish_date,
+            'cover_image' => $coverPath,
+            'pdf_file' => $pdfPath,
+            'description' => $request->description,
+        ]);
+
+        return redirect()->route('admin.pedang-roh.index')->with('success', 'Majalah berhasil diperbarui!');
+    }
+
     public function destroy(Magazine $pedang_roh)
     {
         if ($pedang_roh->cover_image) {
