@@ -3,12 +3,12 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ $title ?? 'GBIA GRAMMATA' }} — Website Gereja</title>
+    <title>{{ $pageTitle ?? 'GBIA GRAMMATA' }} — Website Gereja</title>
     
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
     
-    <!-- Tailwind CSS (bisa via Vite @vite(...) atau CDN sederhana) -->
+    <!-- Tailwind CSS dimuat melalui CDN. -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
