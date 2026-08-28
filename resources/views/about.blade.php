@@ -10,7 +10,6 @@
         >
         <div class="absolute inset-0 bg-gradient-to-r from-blue-950/95 via-blue-950/80 to-slate-950/45"></div>
         <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
-            <p class="text-sm font-semibold uppercase tracking-[0.2em] text-blue-200">Tentang Kami</p>
             <h1 class="mt-3 max-w-4xl font-serif text-4xl font-bold leading-tight sm:text-5xl">
                 Mengenal GBIA GRAMMATA
             </h1>
@@ -40,7 +39,6 @@
                 </div>
 
                 <div class="lg:col-span-7">
-                    <p class="text-sm font-bold uppercase tracking-wider text-primary">Kata Sambutan Gembala</p>
                     <h2 class="mt-2 font-serif text-3xl font-bold leading-tight text-slate-900 sm:text-4xl">
                         Selamat Datang di GBIA GRAMMATA
                     </h2>
@@ -74,7 +72,6 @@
     <section class="bg-slate-50 py-16 lg:py-24">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="mx-auto max-w-3xl text-center">
-                <p class="text-sm font-semibold uppercase tracking-wider text-primary">Jejak Penyertaan Tuhan</p>
                 <h2 class="mt-2 font-serif text-3xl font-bold text-slate-900 sm:text-4xl">Perjalanan Sejarah Gereja</h2>
                 <p class="mt-4 text-lg leading-relaxed text-slate-600">
                     Jejak langkah penyertaan Tuhan bagi GBIA GRAMMATA dari awal berdirinya hingga saat ini
@@ -140,7 +137,6 @@
     <section class="bg-white py-16 lg:py-24">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="mx-auto max-w-3xl text-center">
-                <p class="text-sm font-semibold uppercase tracking-wider text-primary">Pelayanan yang Bertumbuh</p>
                 <h2 class="mt-2 font-serif text-3xl font-bold text-slate-900 sm:text-4xl">Tunas Jemaat</h2>
                 <p class="mt-4 text-lg leading-relaxed text-slate-600">Cabang dan pos pelayanan jemaat di bawah naungan GBIA GRAMMATA</p>
             </div>

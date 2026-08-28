@@ -11,7 +11,6 @@
         <div class="absolute inset-0 bg-gradient-to-r from-blue-950/95 via-blue-950/80 to-slate-950/50"></div>
 
         <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 lg:py-16">
-            <p class="text-blue-200 text-sm font-semibold uppercase tracking-wider">Majalah Rohani</p>
             <h1 class="font-serif text-4xl sm:text-5xl font-bold mt-2">Pedang Roh</h1>
             <p class="mt-4 max-w-2xl text-blue-100 leading-relaxed">
                 Baca dan unduh majalah Pedang Roh untuk menemani pertumbuhan iman Anda.
@@ -77,13 +76,13 @@
                                 <span class="text-xs font-semibold uppercase tracking-[0.2em] text-blue-200">GBIA GRAMMATA</span>
                                 <div>
                                     <p class="font-serif text-3xl font-bold">Pedang Roh</p>
-                                    <p class="mt-2 text-sm text-blue-100">{{ $magazine->edition_number }}</p>
+                                    <p class="mt-2 text-sm text-blue-100">{{ $magazine->edition_label }}</p>
                                 </div>
                             </div>
                         @endif
 
                         <div class="p-5 flex flex-1 flex-col">
-                            <p class="text-sm font-semibold text-primary">{{ $magazine->edition_number }}</p>
+                            <p class="text-sm font-semibold text-primary">{{ $magazine->edition_label }}</p>
                             <h2 class="font-serif text-xl font-bold text-slate-900 mt-1">{{ $magazine->title }}</h2>
                             <time class="mt-2 text-sm text-slate-500" datetime="{{ $magazine->publish_date->toDateString() }}">
                                 {{ $magazine->publish_date->translatedFormat('d F Y') }}

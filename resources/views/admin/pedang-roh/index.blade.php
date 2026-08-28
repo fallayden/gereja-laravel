@@ -43,7 +43,7 @@
                                 </div>
                             </td>
                             <td class="whitespace-nowrap px-6 py-4 text-sm font-semibold text-slate-700">
-                                {{ $magazine->edition_number }}
+                                {{ $magazine->edition_label }}
                             </td>
                             <td class="whitespace-nowrap px-6 py-4 text-sm text-slate-600">
                                 {{ $magazine->publish_date->translatedFormat('d F Y') }}

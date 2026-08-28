@@ -24,7 +24,7 @@
             @endif
 
             <div class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm sm:p-9">
-                <div class="text-[1.05rem] leading-8 text-slate-700 whitespace-pre-line">{{ $article->body }}</div>
+                <div class="break-words whitespace-pre-line text-left text-[1.05rem] leading-8 text-slate-700">{{ $article->body }}</div>
             </div>
 
             @if ($article->attachments->isNotEmpty())

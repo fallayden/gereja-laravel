@@ -61,5 +61,60 @@
 
         @yield('content')
     </main>
+
+    <script>
+        (() => {
+            const normalizeText = (text) => text
+                .replace(/\r\n?/g, '\n')
+                .replace(/\u00a0/g, ' ')
+                .split('\n')
+                .map((line) => line.replace(/[\t\p{Zs}]+/gu, ' ').trim())
+                .join('\n')
+                .replace(/\n{3,}/g, '\n\n')
+                .trim();
+
+            const showStatus = (textarea) => {
+                const status = textarea.closest('div').querySelector('[data-format-status]');
+
+                if (!status) return;
+
+                status.textContent = 'Teks sudah dirapikan.';
+                window.setTimeout(() => status.textContent = '', 2500);
+            };
+
+            document.addEventListener('paste', (event) => {
+                const textarea = event.target.closest('textarea[data-normalize-paste]');
+
+                if (!textarea) return;
+
+                const pastedText = event.clipboardData?.getData('text/plain');
+
+                if (typeof pastedText !== 'string') return;
+
+                event.preventDefault();
+                textarea.setRangeText(
+                    normalizeText(pastedText),
+                    textarea.selectionStart,
+                    textarea.selectionEnd,
+                    'end'
+                );
+                showStatus(textarea);
+            });
+
+            document.addEventListener('click', (event) => {
+                const button = event.target.closest('[data-normalize-text]');
+
+                if (!button) return;
+
+                const textarea = document.getElementById(button.dataset.normalizeText);
+
+                if (!textarea) return;
+
+                textarea.value = normalizeText(textarea.value);
+                textarea.focus();
+                showStatus(textarea);
+            });
+        })();
+    </script>
 </body>
 </html>

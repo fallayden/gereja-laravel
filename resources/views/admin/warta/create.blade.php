@@ -34,10 +34,21 @@
             </div>
 
             <div>
-                <label for="body" class="block text-sm font-semibold text-slate-700">Isi warta</label>
-                <textarea id="body" name="body" rows="12" required
+                <div class="flex flex-wrap items-center justify-between gap-2">
+                    <label for="body" class="block text-sm font-semibold text-slate-700">Isi warta</label>
+                    <button type="button" data-normalize-text="body"
+                            class="text-sm font-semibold text-primary hover:text-blue-800">
+                        Rapikan teks
+                    </button>
+                </div>
+                <textarea id="body" name="body" rows="12" required data-normalize-paste
+                          aria-describedby="body-format-help body-format-status"
                           class="mt-2 w-full rounded-lg border border-slate-300 px-4 py-3 leading-relaxed outline-none focus:border-primary focus:ring-2 focus:ring-blue-100"
                           placeholder="Tuliskan isi warta jemaat...">{{ old('body') }}</textarea>
+                <div class="mt-2 flex flex-wrap items-center justify-between gap-2 text-xs">
+                    <p id="body-format-help" class="text-slate-500">Teks hasil paste otomatis dirapikan tanpa menghapus pemisah paragraf.</p>
+                    <p id="body-format-status" data-format-status class="font-semibold text-emerald-700" aria-live="polite"></p>
+                </div>
                 @error('body')<p class="mt-2 text-sm text-red-600">{{ $message }}</p>@enderror
             </div>
 

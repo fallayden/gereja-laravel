@@ -29,7 +29,6 @@
     <section id="jadwal-ibadah" class="scroll-mt-24 bg-slate-50 py-16 lg:py-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="mx-auto mb-10 max-w-3xl text-center">
-                <p class="text-sm font-semibold uppercase tracking-wider text-primary">Bergabung Bersama Kami</p>
                 <h2 class="mt-2 font-serif text-3xl font-bold text-slate-900 sm:text-4xl">Jadwal Ibadah &amp; Persekutuan</h2>
                 <p class="mt-4 text-lg text-slate-600">Mari bergabung dan beribadah bersama jemaat GBIA GRAMMATA</p>
             </div>
@@ -62,8 +61,7 @@
 
     <section class="bg-white py-16 lg:py-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="mx-auto mb-10 max-w-3xl text-center">
-                <p class="text-sm font-semibold uppercase tracking-wider text-primary">Identitas dan Panggilan</p>
+            <div class="mx-auto mb-10 max-w-3xl text-center">                
                 <h2 class="mt-2 font-serif text-3xl font-bold text-slate-900 sm:text-4xl">Mengenal GBIA GRAMMATA</h2>
                 <p class="mt-4 text-lg text-slate-600">Bertumbuh dalam kebenaran, menjangkau sesama, dan melayani Tuhan bersama-sama.</p>
             </div>
@@ -100,7 +98,6 @@
     <section class="bg-slate-50 py-16 lg:py-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="mx-auto max-w-3xl text-center">
-                <p class="text-sm font-semibold uppercase tracking-wider text-primary">Datang dan Bersekutu</p>
                 <h2 class="mt-2 font-serif text-3xl font-bold text-slate-900 sm:text-4xl">Mari Bertumbuh dan Beribadah Bersama Kami</h2>
                 <p class="mt-4 text-lg leading-relaxed text-slate-600">
                     Kami menyambut Anda dengan hangat untuk menjadi bagian dari keluarga Allah di GBIA GRAMMATA.

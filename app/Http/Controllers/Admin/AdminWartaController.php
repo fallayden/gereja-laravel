@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Article;
 use App\Models\ArticleAttachment;
+use App\Support\ArticleBodyFormatter;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -24,7 +25,11 @@ class AdminWartaController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
+        $request->merge([
+            'body' => ArticleBodyFormatter::normalize((string) $request->input('body')),
+        ]);
+
+        $validated = $request->validate([
             'title' => 'required|max:255',
             'body' => 'required',
             'thumbnail' => 'nullable|image|max:2048',
@@ -38,8 +43,8 @@ class AdminWartaController extends Controller
         $article = Article::create([
             'title' => $request->title,
             'slug' => Str::slug($request->title) . '-' . time(),
-            'excerpt' => Str::limit(strip_tags($request->body), 150),
-            'body' => $request->body,
+            'excerpt' => Str::limit(strip_tags($validated['body']), 150),
+            'body' => $validated['body'],
             'thumbnail' => $thumbnailPath,
             'published_at' => now(),
             'is_published' => true,
@@ -68,7 +73,11 @@ class AdminWartaController extends Controller
 
     public function update(Request $request, Article $warta)
     {
-        $request->validate([
+        $request->merge([
+            'body' => ArticleBodyFormatter::normalize((string) $request->input('body')),
+        ]);
+
+        $validated = $request->validate([
             'title' => 'required|max:255',
             'body' => 'required',
             'thumbnail' => 'nullable|image|max:2048',
@@ -89,8 +98,8 @@ class AdminWartaController extends Controller
 
         $warta->update([
             'title' => $request->title,
-            'excerpt' => Str::limit(strip_tags($request->body), 150),
-            'body' => $request->body,
+            'excerpt' => Str::limit(strip_tags($validated['body']), 150),
+            'body' => $validated['body'],
             'thumbnail' => $thumbnailPath,
         ]);
 
