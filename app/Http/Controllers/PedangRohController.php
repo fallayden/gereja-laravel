@@ -17,7 +17,7 @@ class PedangRohController extends Controller
             $search = $request->query('search');
             $query->where(function ($q) use ($search) {
                 $q->where('title', 'like', "%{$search}%")
-                  ->orWhere('edition_number', 'like', "%{$search}%");
+                    ->orWhere('edition_number', 'like', "%{$search}%");
             });
         }
 
@@ -38,13 +38,13 @@ class PedangRohController extends Controller
 
     public function view(Magazine $magazine)
     {
-        if (!Storage::disk('public')->exists($magazine->pdf_file)) {
+        if (! Storage::disk('public')->exists($magazine->pdf_file)) {
             abort(404, 'File majalah tidak ditemukan.');
         }
 
         return Storage::disk('public')->response(
             $magazine->pdf_file,
-            $magazine->title . '.pdf',
+            $this->pdfFilename($magazine),
             [
                 'Content-Type' => 'application/pdf',
                 'Cache-Control' => 'public, max-age=86400',
@@ -54,13 +54,21 @@ class PedangRohController extends Controller
 
     public function download(Magazine $magazine)
     {
-        if (!Storage::disk('public')->exists($magazine->pdf_file)) {
+        if (! Storage::disk('public')->exists($magazine->pdf_file)) {
             abort(404, 'File majalah tidak ditemukan.');
         }
 
         return Storage::disk('public')->download(
             $magazine->pdf_file,
-            $magazine->title . '.pdf'
+            $this->pdfFilename($magazine)
         );
+    }
+
+    private function pdfFilename(Magazine $magazine): string
+    {
+        $invalidCharacters = ['<', '>', ':', '"', '/', '\\', '|', '?', '*'];
+        $safeTitle = str_replace($invalidCharacters, '-', $magazine->title);
+
+        return trim($safeTitle).'.pdf';
     }
 }
