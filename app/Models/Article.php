@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Article extends Model
 {
     protected $fillable = [
-        'title', 'slug', 'excerpt', 'body', 'thumbnail', 'published_at', 'is_published'
+        'title', 'slug', 'excerpt', 'body', 'thumbnail', 'published_at', 'is_published',
     ];
 
     protected $casts = [

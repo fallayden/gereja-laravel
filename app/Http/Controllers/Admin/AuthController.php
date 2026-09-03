@@ -13,6 +13,7 @@ class AuthController extends Controller
         if (Auth::check()) {
             return redirect()->route('admin.warta.index');
         }
+
         return view('admin.login');
     }
 
@@ -25,6 +26,7 @@ class AuthController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
+
             return redirect()->intended(route('admin.warta.index'));
         }
 
@@ -36,6 +38,7 @@ class AuthController extends Controller
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
+
         return redirect()->route('login');
     }
 }

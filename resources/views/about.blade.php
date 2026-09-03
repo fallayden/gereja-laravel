@@ -145,7 +145,7 @@
                 <article class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-md">
                     <img src="{{ asset('images/Tanjung Burung.jpeg') }}" alt="Pelayanan GBIA Tanjung Burung" loading="lazy" decoding="async" class="h-52 w-full object-cover object-center">
                     <div class="p-6">
-                        <h3 class="font-serif text-xl font-bold text-slate-900">GBIA TANJUNG BURUNG</h3>
+                        <h3 class="font-serif text-xl font-bold text-slate-900">GBIA Tanjung Burung</h3>
                         <dl class="mt-5 space-y-3 text-sm">
                             <div><dt class="text-slate-500">Pelayan</dt><dd class="mt-1 font-semibold text-slate-800">EV. Akonius</dd></div>
                             <div><dt class="text-slate-500">Lokasi</dt><dd class="mt-1 font-semibold text-slate-800">Tanjung Burung, Kab Tangerang</dd></div>

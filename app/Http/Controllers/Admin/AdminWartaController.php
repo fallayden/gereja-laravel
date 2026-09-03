@@ -15,6 +15,7 @@ class AdminWartaController extends Controller
     public function index()
     {
         $articles = Article::latest()->paginate(10);
+
         return view('admin.warta.index', compact('articles'));
     }
 
@@ -36,13 +37,13 @@ class AdminWartaController extends Controller
             'pdf_attachment' => 'nullable|mimes:pdf|max:10240',
         ]);
 
-        $thumbnailPath = $request->hasFile('thumbnail') 
-            ? $request->file('thumbnail')->store('thumbnails', 'public') 
+        $thumbnailPath = $request->hasFile('thumbnail')
+            ? $request->file('thumbnail')->store('thumbnails', 'public')
             : null;
 
         $article = Article::create([
             'title' => $request->title,
-            'slug' => Str::slug($request->title) . '-' . time(),
+            'slug' => Str::slug($request->title).'-'.time(),
             'excerpt' => Str::limit(strip_tags($validated['body']), 150),
             'body' => $validated['body'],
             'thumbnail' => $thumbnailPath,

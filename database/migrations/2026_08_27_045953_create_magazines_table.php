@@ -10,18 +10,18 @@ return new class extends Migration
      * Run the migrations.
      */
     public function up(): void
-{
-    Schema::create('magazines', function (Blueprint $table) {
-        $table->id();
-        $table->string('title');
-        $table->string('edition_number'); // Contoh: "Edisi 12 / 2026"
-        $table->date('publish_date');
-        $table->string('cover_image')->nullable();
-        $table->string('pdf_file');
-        $table->text('description')->nullable();
-        $table->timestamps();
-    });
-}
+    {
+        Schema::create('magazines', function (Blueprint $table) {
+            $table->id();
+            $table->string('title');
+            $table->string('edition_number'); // Contoh: "Edisi 12 / 2026"
+            $table->date('publish_date');
+            $table->string('cover_image')->nullable();
+            $table->string('pdf_file');
+            $table->text('description')->nullable();
+            $table->timestamps();
+        });
+    }
 
     /**
      * Reverse the migrations.

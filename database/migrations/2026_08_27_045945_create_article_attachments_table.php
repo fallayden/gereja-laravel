@@ -10,16 +10,16 @@ return new class extends Migration
      * Run the migrations.
      */
     public function up(): void
-{
-    Schema::create('article_attachments', function (Blueprint $table) {
-        $table->id();
-        $table->foreignId('article_id')->constrained()->cascadeOnDelete();
-        $table->string('file_name');
-        $table->string('file_path');
-        $table->unsignedBigInteger('file_size')->nullable();
-        $table->timestamps();
-    });
-}
+    {
+        Schema::create('article_attachments', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('article_id')->constrained()->cascadeOnDelete();
+            $table->string('file_name');
+            $table->string('file_path');
+            $table->unsignedBigInteger('file_size')->nullable();
+            $table->timestamps();
+        });
+    }
 
     /**
      * Reverse the migrations.

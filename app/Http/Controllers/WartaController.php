@@ -41,7 +41,7 @@ class WartaController extends Controller
 
     public function viewAttachment(ArticleAttachment $attachment)
     {
-        if (!Storage::disk('public')->exists($attachment->file_path)) {
+        if (! Storage::disk('public')->exists($attachment->file_path)) {
             abort(404, 'File lampiran tidak ditemukan.');
         }
 
@@ -57,7 +57,7 @@ class WartaController extends Controller
 
     public function downloadAttachment(ArticleAttachment $attachment)
     {
-        if (!Storage::disk('public')->exists($attachment->file_path)) {
+        if (! Storage::disk('public')->exists($attachment->file_path)) {
             abort(404, 'File lampiran tidak ditemukan.');
         }
 

@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Magazine extends Model
 {
     protected $fillable = [
-        'title', 'edition_number', 'publish_date', 'cover_image', 'pdf_file'
+        'title', 'edition_number', 'publish_date', 'cover_image', 'pdf_file',
     ];
 
     protected $casts = [
@@ -20,7 +20,7 @@ class Magazine extends Model
         return Attribute::get(function (): string {
             $number = preg_replace('/^edisi\s*/i', '', $this->edition_number) ?? $this->edition_number;
 
-            return 'Edisi ' . trim($number);
+            return 'Edisi '.trim($number);
         });
     }
 }

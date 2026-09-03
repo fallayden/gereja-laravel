@@ -1,12 +1,12 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\AdminMagazineController;
+use App\Http\Controllers\Admin\AdminWartaController;
+use App\Http\Controllers\Admin\AuthController;
+use App\Http\Controllers\PedangRohController;
 use App\Http\Controllers\PublicController;
 use App\Http\Controllers\WartaController;
-use App\Http\Controllers\PedangRohController;
-use App\Http\Controllers\Admin\AuthController;
-use App\Http\Controllers\Admin\AdminWartaController;
-use App\Http\Controllers\Admin\AdminMagazineController;
+use Illuminate\Support\Facades\Route;
 
 // ==================== PUBLIK ====================
 Route::get('/', [PublicController::class, 'home'])->name('home');

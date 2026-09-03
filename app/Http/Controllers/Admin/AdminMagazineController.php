@@ -12,6 +12,7 @@ class AdminMagazineController extends Controller
     public function index()
     {
         $magazines = Magazine::latest('publish_date')->paginate(10);
+
         return view('admin.pedang-roh.index', compact('magazines'));
     }
 
@@ -30,8 +31,8 @@ class AdminMagazineController extends Controller
             'pdf_file' => 'required|mimes:pdf|max:20480',
         ]);
 
-        $coverPath = $request->hasFile('cover_image') 
-            ? $request->file('cover_image')->store('magazine-covers', 'public') 
+        $coverPath = $request->hasFile('cover_image')
+            ? $request->file('cover_image')->store('magazine-covers', 'public')
             : null;
 
         $pdfPath = $request->file('pdf_file')->store('magazines', 'public');

@@ -10,19 +10,19 @@ return new class extends Migration
      * Run the migrations.
      */
     public function up(): void
-{
-    Schema::create('articles', function (Blueprint $table) {
-        $table->id();
-        $table->string('title');
-        $table->string('slug')->unique();
-        $table->text('excerpt')->nullable();
-        $table->longText('body');
-        $table->string('thumbnail')->nullable();
-        $table->timestamp('published_at')->nullable();
-        $table->boolean('is_published')->default(true);
-        $table->timestamps();
-    });
-}
+    {
+        Schema::create('articles', function (Blueprint $table) {
+            $table->id();
+            $table->string('title');
+            $table->string('slug')->unique();
+            $table->text('excerpt')->nullable();
+            $table->longText('body');
+            $table->string('thumbnail')->nullable();
+            $table->timestamp('published_at')->nullable();
+            $table->boolean('is_published')->default(true);
+            $table->timestamps();
+        });
+    }
 
     /**
      * Reverse the migrations.
